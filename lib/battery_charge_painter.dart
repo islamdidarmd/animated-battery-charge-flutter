@@ -12,7 +12,7 @@ class BatteryChargePainter extends CustomPainter {
   final double chargeWidth = 80;
   final double chargeHeight = 35;
   final double batteryPositivePowerHeight = 20;
-  final double batteryPositivePowerWidth = 20;
+  final double batteryPositivePowerWidth = 10;
 
   final batteryShellPainter = Paint()
     ..style = PaintingStyle.stroke
@@ -28,9 +28,7 @@ class BatteryChargePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final height = size.height;
-    final width = size.width;
-    final center = Offset(height / 2, width / 2);
+    final center = Offset(size.height / 2, size.width / 2);
 
     final batteryPowerCenter = Offset(
         center.dx + batteryShellWidth / 2 + batteryPositivePowerWidth / 2,
@@ -51,7 +49,7 @@ class BatteryChargePainter extends CustomPainter {
     final chargeRect = Rect.fromLTWH(
       fullChargeRect.left,
       fullChargeRect.top,
-      (charge * 100) / width,
+      (charge * chargeWidth) / 100,
       chargeHeight,
     );
 
