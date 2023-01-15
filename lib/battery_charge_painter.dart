@@ -31,14 +31,21 @@ class BatteryChargePainter extends CustomPainter {
     final center = Offset(size.height / 2, size.width / 2);
 
     final batteryPowerCenter = Offset(
-        center.dx + batteryShellWidth / 2 + batteryPositivePowerWidth / 2,
-        center.dy);
+      center.dx + batteryShellWidth / 2 + batteryPositivePowerWidth / 2,
+      center.dy,
+    );
 
     final shellRect = Rect.fromCenter(
-        center: center, width: batteryShellWidth, height: batteryShellHeight);
+      center: center,
+      width: batteryShellWidth,
+      height: batteryShellHeight,
+    );
 
     final fullChargeRect = Rect.fromCenter(
-        center: center, width: chargeWidth, height: chargeHeight);
+      center: center,
+      width: chargeWidth,
+      height: chargeHeight,
+    );
 
     final positivePowerRect = Rect.fromCenter(
       center: batteryPowerCenter,
@@ -53,10 +60,11 @@ class BatteryChargePainter extends CustomPainter {
       chargeHeight,
     );
 
-    canvas.drawRect(shellRect, batteryShellPainter);
-    canvas.drawRect(fullChargeRect, batteryChargeStrokePainter);
-    canvas.drawRect(chargeRect, batteryChargePainter);
-    canvas.drawRect(positivePowerRect, batteryShellPainter);
+    canvas
+      ..drawRect(shellRect, batteryShellPainter)
+      ..drawRect(fullChargeRect, batteryChargeStrokePainter)
+      ..drawRect(chargeRect, batteryChargePainter)
+      ..drawRect(positivePowerRect, batteryShellPainter);
   }
 
   @override
